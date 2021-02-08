@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>ex-dischi-musicali</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div id="root">
+
+        <header>
+            <div class="container">
+                <img src="logo.png" alt="logo" />
+            </div>
+        </header>
+        <select class="" name="" v-model="option">
+          <option value="all">All</option>
+          <option :value="element" v-for="element in listGeneri" >{{element}}</option>
+        </select>
+
+        <div class="cds-container container">
+            <!-- Disco ad esempio -->
+            <div v-for="element in listDisks" v-if="filterList(element)"class="cd">
+                <img :src="element.poster" alt="">
+                <h3>{{element.title}}</h3>
+                <span class="author">{{element.author}}</span>
+                <span class="year">{{element.year}}</span>
+            </div>
+            <div v-for="element in listDisks" v-if="option == '' || option =='all'"class="cd">
+                <img :src="element.poster" alt="">
+                <h3>{{element.title}}</h3>
+                <span class="author">{{element.author}}</span>
+                <span class="year">{{element.year}}</span>
+            </div>
+        </div>
+      </div>
+
+
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
