@@ -5,7 +5,7 @@ new Vue({
       listDisks:[],
       listGeneri:[],
       listGroups:[],
-      listYears:[],
+      listYears:['70s','80s','90s','2k','modern'],
   },
   mounted() {
     const self = this;
@@ -17,7 +17,6 @@ new Vue({
         var autore = 'author';
         self.generateOptions(self.listDisks,genere,self.listGeneri);
         self.generateOptions(self.listDisks,autore,self.listGroups);
-        self.generateYears();
         });
       });
   },
@@ -27,31 +26,6 @@ new Vue({
           parentArray.forEach((item, i) => {
           if (!destinationArray.includes(item[value])) {
             destinationArray.push(item[value])
-          }
-        });
-      },
-      generateYears : function(){
-          const self = this;
-          self.listDisks.forEach((item, i) => {
-          if (!self.listYears.includes(item.year)) {
-            let sweetYear = parseInt(item.year);
-             switch (true) {
-             case sweetYear > 1970 && sweetYear < 1980 && !self.listYears.includes('70s'):
-             self.listYears.push('70s');
-             break;
-             case sweetYear > 1980 && sweetYear < 1990 && !self.listYears.includes('80s'):
-             self.listYears.push('80s')
-             break;
-             case sweetYear > 1990 && sweetYear < 2000 && !self.listYears.includes('90s'):
-             self.listYears.push('90s')
-             break;
-             case sweetYear > 2000 && sweetYear < 2010 && !self.listYears.includes('2k'):
-             self.listYears.push('2k')
-             break;
-             case sweetYear > 2010 && sweetYear < 2020 && !self.listYears.includes('modern'):
-             self.listYears.push('modern')
-             break;
-           }
           }
         });
       },
@@ -70,6 +44,7 @@ new Vue({
       filterListByYears : function(element) {
          let sweetYear = parseInt(element.year);
          var filterYears;
+         // TODO: perchè se levo il true non funziona???
          switch (true) {
          case sweetYear > 1970 && sweetYear < 1980:
          filterYears = '70s';

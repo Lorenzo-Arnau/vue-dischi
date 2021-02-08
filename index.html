@@ -47,7 +47,7 @@
 
         <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div v-for="element in listDisks" v-if="filterListByGenre(element)"class="cd">
+            <div v-for="element in listDisks" v-if="filterListByGenre(element) || option == '' || option =='all'"class="cd">
                 <img :src="element.poster" alt="">
                 <h3>{{element.title}}</h3>
                 <span class="author">{{element.author}}</span>
@@ -60,12 +60,6 @@
                 <span class="year">{{element.year}}</span>
             </div>
             <div v-for="element in listDisks" v-if="filterListByYears(element)"class="cd">
-                <img :src="element.poster" alt="">
-                <h3>{{element.title}}</h3>
-                <span class="author">{{element.author}}</span>
-                <span class="year">{{element.year}}</span>
-            </div>
-            <div v-for="element in listDisks" v-if="option == '' || option =='all'"class="cd">
                 <img :src="element.poster" alt="">
                 <h3>{{element.title}}</h3>
                 <span class="author">{{element.author}}</span>
