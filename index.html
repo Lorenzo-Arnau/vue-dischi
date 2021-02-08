@@ -49,20 +49,20 @@
             <!-- Disco ad esempio -->
             <div v-for="element in listDisks" v-if="filterListByGenre(element) || option == '' || option =='all'"class="cd">
                 <img :src="element.poster" alt="">
-                <h3>{{element.title}}</h3>
-                <span class="author">{{element.author}}</span>
+                <h3>{{element.author}}</h3>
+                <span class="author">{{element.title}}</span>
                 <span class="year">{{element.year}}</span>
             </div>
             <div v-for="element in listDisks" v-if="filterListByAuthor(element)"class="cd">
                 <img :src="element.poster" alt="">
-                <h3>{{element.title}}</h3>
-                <span class="author">{{element.author}}</span>
+                <h3>{{element.author}}</h3>
+                <span class="author">{{element.title}}</span>
                 <span class="year">{{element.year}}</span>
             </div>
             <div v-for="element in listDisks" v-if="filterListByYears(element)"class="cd">
                 <img :src="element.poster" alt="">
-                <h3>{{element.title}}</h3>
-                <span class="author">{{element.author}}</span>
+                <h3>{{element.author}}</h3>
+                <span class="author">{{element.title}}</span>
                 <span class="year">{{element.year}}</span>
             </div>
         </div>
