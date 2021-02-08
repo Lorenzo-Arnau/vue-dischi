@@ -45,8 +45,11 @@ header img {
     height: 360px;
     background: rgb(46, 58, 70);
     text-align: center;
+    cursor: pointer;
 }
-
+.cd:hover{
+  transform: scale(1.1);
+}
 .cd img {
     max-width: 100%;
 }
@@ -65,4 +68,20 @@ header img {
 
 .cd span.year {
     color: grey;
+}
+.selector-container{
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.selector-container > div{
+ width: 350px;
+ background-color: #fff;
+ height: 50px;
+ line-height: 50px;
+ text-align: center;
+ border-radius: 10px;
+ box-shadow: 1px 1px 1px #000;
 }

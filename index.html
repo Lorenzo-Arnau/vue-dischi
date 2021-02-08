@@ -11,20 +11,55 @@
     </head>
     <body>
       <div id="root">
-
         <header>
             <div class="container">
                 <img src="logo.png" alt="logo" />
             </div>
         </header>
-        <select class="" name="" v-model="option">
-          <option value="all">All</option>
-          <option :value="element" v-for="element in listGeneri" >{{element}}</option>
-        </select>
+
+        <div class="selector-container">
+          <div class="">
+            <label for="selector"> Filtra per genere </label>
+            <select class="" name="selector" v-model="option">
+              <option value="all">All</option>
+              <option :value="element" v-for="element in listGeneri" >{{element}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="selector-container">
+          <div class="">
+            <label for="selector"> Filtra per gruppo </label>
+            <select class="" name="selector" v-model="option">
+              <option value="all">All</option>
+              <option :value="element" v-for="element in listGroups" >{{element}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="selector-container">
+          <div class="">
+            <label for="selector"> Filtra per Anni </label>
+            <select class="" name="selector" v-model="option">
+              <option value="all">All</option>
+              <option :value="element" v-for="element in listYears" >{{element}}</option>
+            </select>
+          </div>
+        </div>
 
         <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div v-for="element in listDisks" v-if="filterList(element)"class="cd">
+            <div v-for="element in listDisks" v-if="filterListByGenre(element)"class="cd">
+                <img :src="element.poster" alt="">
+                <h3>{{element.title}}</h3>
+                <span class="author">{{element.author}}</span>
+                <span class="year">{{element.year}}</span>
+            </div>
+            <div v-for="element in listDisks" v-if="filterListByAuthor(element)"class="cd">
+                <img :src="element.poster" alt="">
+                <h3>{{element.title}}</h3>
+                <span class="author">{{element.author}}</span>
+                <span class="year">{{element.year}}</span>
+            </div>
+            <div v-for="element in listDisks" v-if="filterListByYears(element)"class="cd">
                 <img :src="element.poster" alt="">
                 <h3>{{element.title}}</h3>
                 <span class="author">{{element.author}}</span>
